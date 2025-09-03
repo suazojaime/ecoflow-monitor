@@ -1,0 +1,12 @@
+services:
+  monitor:
+    build:
+      context: .
+      dockerfile: dockerfile
+    container_name: monitor-service
+    restart: unless-stopped
+    env_file: 
+      - .env
+    volumes:
+      - ./logs:/var/log  # Optional: to persist cron logs on host
+      - .env:/app/.env
