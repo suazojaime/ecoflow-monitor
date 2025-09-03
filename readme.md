@@ -16,6 +16,7 @@ A containerized Python service that monitors EcoFlow battery status and sends up
 
 ## 🧪 Project Structure
 
+```
 ├── main.py # Main script entry point
 ├── eco_values.py # Logic to get EcoFlow values
 ├── telegram_api.py # Sends updates to your API
@@ -24,7 +25,7 @@ A containerized Python service that monitors EcoFlow battery status and sends up
 ├── compose.yml # Docker Compose setup
 ├── .env.example # Environment variable template
 └── README.md # You're here
-
+```
 
 ## ⚙️ Usage
 
