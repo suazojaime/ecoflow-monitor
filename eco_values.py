@@ -44,6 +44,6 @@ def get_ecoflow_values():
 
     battery_status = response.json()['data']['bmsBattSoc']
     power_input = response.json()['data']['powGetAcIn']
-    battery_temp = response.json()['data']['bmsMaxCellTemp']
+    battery_temp = response.json()['data']['bmsMinCellTemp']
 
     return [battery_status, power_input, battery_temp]

@@ -3,7 +3,7 @@ import json
 import os
 from dotenv import load_dotenv, dotenv_values 
 
-def send_bot_message(battery_status,power_input, battery_temp):
+def send_bot_message(battery_status,power_input, battery_temp, alarmFlag):
 
     load_dotenv() 
     
@@ -14,12 +14,21 @@ def send_bot_message(battery_status,power_input, battery_temp):
         
     url = f"https://api.telegram.org/bot{telegram_token}/sendMessage"
 
-    payload = json.dumps({
-          "text": f'''
+    if alarmFlag:
+      text = f'''
 ⚠️ Power input: {power_input}
-⚠️ Battery stat: {battery_statuus}
+⚠️ Battery stat: {battery_status}
 ⚠️ Battery temp: {battery_temp}
-''',
+'''
+    else:
+
+      text = f'''
+Power input: {power_input}
+Battery stat: {battery_status}
+Battery temp: {battery_temp}
+'''
+    payload = json.dumps({
+          "text": text,
           "chat_id": chat_id
         })
     headers = {
